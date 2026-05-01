@@ -7,7 +7,7 @@ import os
 import sys
 from pathlib import Path
 
-ITEMS = ["CLAUDE.md", "settings.json", "bin"]
+ITEMS = ["CLAUDE.md", "settings.json", "bin", "skills"]
 DEFAULT_TARGET = Path.home() / ".claude"
 
 

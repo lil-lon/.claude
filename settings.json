@@ -2,7 +2,10 @@
     "$schema": "https://json.schemastore.org/claude-code-settings.json",
     "theme": "dark",
     "sandbox": {
-        "enabled": true
+        "enabled": true,
+        "excludedCommands": [
+            "bash ~/.claude*/skills/codex-review/review.sh*"
+        ]
     },
     "permissions": {
         "allow": [
@@ -35,7 +38,9 @@
             "Bash(gh api repos/*/*/pulls/*/comments *)",
             "Bash(gh api repos/*/*/pulls/*/reviews)",
             "Bash(gh api repos/*/*/pulls/*/reviews *)",
-            "Read(//tmp/claude-code/**)"
+            "Skill(ideation)",
+            "Skill(codex-review)",
+            "Skill(complete-implementation)"
         ],
         "deny": [
             "Bash(awk *)",
@@ -75,7 +80,7 @@
                 "hooks": [
                     {
                         "type": "command",
-                        "command": "${CLAUDE_CONFIG_DIR:-$HOME/.claude}/bin/validate_bash.py"
+                        "command": "$CLAUDE_CONFIG_DIR/bin/validate_bash.py"
                     }
                 ]
             }
