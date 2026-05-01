@@ -1,3 +1,8 @@
+## About this repo
+
+My personal Claude Code configuration, published as a reference.
+If you use anything from here, read the settings first and adapt them to your own workflow.
+
 ## Installation
 
 `install.py` symlinks shared config items from this repo into `$CLAUDE_CONFIG_DIR`. Edits in this repo are immediately reflected in the target — nothing is copied.
