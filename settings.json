@@ -1,0 +1,85 @@
+{
+    "$schema": "https://json.schemastore.org/claude-code-settings.json",
+    "theme": "dark",
+    "sandbox": {
+        "enabled": true
+    },
+    "permissions": {
+        "allow": [
+            "Write",
+            "Edit",
+            "WebSearch",
+            "Grep",
+            "Glob",
+            "Bash(git add *)",
+            "Bash(git commit *)",
+            "Bash(git diff *)",
+            "Bash(git log *)",
+            "Bash(git branch *)",
+            "Bash(git status)",
+            "Bash(uv run pytest *)",
+            "Bash(uv run ruff check *)",
+            "Bash(uv run ruff format *)",
+            "Bash(uv sync --frozen *)",
+            "Bash(gh issue list *)",
+            "Bash(gh issue view *)",
+            "Bash(gh pr checks *)",
+            "Bash(gh pr diff *)",
+            "Bash(gh pr list *)",
+            "Bash(gh pr view *)",
+            "Bash(gh repo view *)",
+            "Bash(gh run list *)",
+            "Bash(gh run view *)",
+            "Bash(gh search *)",
+            "Bash(gh api repos/*/*/pulls/*/comments)",
+            "Bash(gh api repos/*/*/pulls/*/comments *)",
+            "Bash(gh api repos/*/*/pulls/*/reviews)",
+            "Bash(gh api repos/*/*/pulls/*/reviews *)",
+            "Read(//tmp/claude-code/**)"
+        ],
+        "deny": [
+            "Bash(awk *)",
+            "Bash(git -C *)",
+            "Bash(python *)",
+            "Bash(python3 *)",
+            "Bash(wc *)",
+            "Bash(wget *)",
+            "Bash(cat *)",
+            "Bash(curl *)",
+            "Bash(echo *)",
+            "Bash(find *)",
+            "Bash(grep *)",
+            "Bash(head *)",
+            "Bash(ls)",
+            "Bash(ls *)",
+            "Bash(printf *)",
+            "Bash(rg *)",
+            "Bash(sed *)",
+            "Bash(tail *)",
+            "Bash(touch *)",
+            "Bash(tree)",
+            "Bash(tree *)",
+            "Bash(rm *)",
+            "Bash(kill *)"
+        ],
+        "ask": [
+            "Bash(git push *)",
+            "WebFetch"
+        ]
+    },
+    "model": "opus[1m]",
+    "hooks": {
+        "PreToolUse": [
+            {
+                "matcher": "Bash",
+                "hooks": [
+                    {
+                        "type": "command",
+                        "command": "${CLAUDE_CONFIG_DIR:-$HOME/.claude}/bin/validate_bash.py"
+                    }
+                ]
+            }
+        ]
+    },
+    "effortLevel": "xhigh"
+}
