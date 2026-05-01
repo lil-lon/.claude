@@ -1,0 +1,6 @@
+[project]
+name = "claude-code-config"
+version = "0.1.0"
+description = "Claude Config management"
+readme = "README.md"
+requires-python = ">=3.13"
