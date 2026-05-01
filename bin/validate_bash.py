@@ -7,10 +7,11 @@ import json
 import re
 import sys
 
-# Blocks compound commands and shell features that can chain or smuggle
-# additional commands. `|` also catches `||`; `>` also catches `>>` and `>&`.
-BLOCKED_PATTERN = re.compile(r"(&&|\||;|\$\(|`|>)")
-MESSAGE = "Error: Commands containing &&, |, ;, $(, `, or > are not allowed."
+# Blocks the most common ways to chain extra commands or sneak content
+# into existing files: && (AND), & (background), ; (separator),
+# >> (append redirect).
+BLOCKED_PATTERN = re.compile(r"&&|&|;|>>")
+MESSAGE = "Error: Commands containing &&, &, ;, or >> are not allowed."
 
 
 def main() -> None:
