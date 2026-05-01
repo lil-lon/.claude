@@ -8,7 +8,6 @@ import sys
 from pathlib import Path
 
 ITEMS = ["CLAUDE.md", "settings.json", "bin", "skills"]
-DEFAULT_TARGET = Path.home() / ".claude"
 
 
 def repo_root() -> Path:
@@ -17,14 +16,10 @@ def repo_root() -> Path:
 
 def resolve_target() -> Path:
     env = os.environ.get("CLAUDE_CONFIG_DIR")
-    if env:
-        return Path(env).expanduser()
-
-    print(
-        f"warning: CLAUDE_CONFIG_DIR is not set; "
-        f"falling back to default ({DEFAULT_TARGET})",
-    )
-    return DEFAULT_TARGET
+    if not env:
+        print("error: CLAUDE_CONFIG_DIR is not set", file=sys.stderr)
+        sys.exit(1)
+    return Path(env).expanduser()
 
 
 def main() -> int:
