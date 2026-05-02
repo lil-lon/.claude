@@ -5,7 +5,12 @@
         "enabled": true,
         "excludedCommands": [
             "bash ~/.claude*/skills/codex-review/review.sh*"
-        ]
+        ],
+        "filesystem": {
+            "allowWrite": [
+                "~/.cache/pre-commit"
+            ]
+        }
     },
     "permissions": {
         "allow": [
