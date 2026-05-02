@@ -12,7 +12,6 @@ description: |
   through design decisions for something that doesn't exist yet, or is exploring
   a concept before any code is written.
 allowed-tools:
-  - Bash
   - Read
   - Grep
   - Glob
