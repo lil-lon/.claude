@@ -4,3 +4,11 @@ version = "0.1.0"
 description = "Claude Config management"
 readme = "README.md"
 requires-python = ">=3.13"
+
+[dependency-groups]
+dev = [
+    "pre-commit",
+]
+
+[tool.uv]
+exclude-newer = "2026-04-25T00:00:00Z"
