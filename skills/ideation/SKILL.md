@@ -89,12 +89,15 @@ Keep it short.
 Prefer clarity over completeness.
 Do not generate code.
 
-Save the design doc to `./design-docs/ideation/<short-kebab-case-slug>.md`
+Save the design doc to `./design-docs/ideation/<YYYY-MM-DD>_<short-kebab-case-slug>.md`
 relative to the current working directory. Create the `./design-docs/ideation/`
-directory if it does not already exist. Derive the slug from the idea itself
-(e.g. `offline-first-notes.md`), not from the date. If a file with the same
-slug already exists, append a short numeric suffix (`-2`, `-3`, …) rather than
-overwriting.
+directory if it does not already exist. `<YYYY-MM-DD>` is today's date.
+Derive the slug from the idea itself (e.g. `2026-05-04_offline-first-notes.md`).
+If a file with the same name already exists, append a short numeric suffix
+(`-2`, `-3`, …) rather than overwriting.
+
+At the very top of the file, include a single `Date: <YYYY-MM-DD>` line
+before any other content.
 
 ## Attribution
 
