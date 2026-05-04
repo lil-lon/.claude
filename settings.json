@@ -9,13 +9,6 @@
         "filesystem": {
             "allowWrite": [
                 "~/.cache/pre-commit"
-            ],
-            "denyRead": [
-                "~/"
-            ],
-            "denyWrite": [
-                "~/",
-                "./settings.json"
             ]
         }
     },
