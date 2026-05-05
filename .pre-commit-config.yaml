@@ -6,3 +6,4 @@ repos:
         entry: gitleaks git --pre-commit --redact --staged --verbose
         language: system
         pass_filenames: false
+        verbose: true
