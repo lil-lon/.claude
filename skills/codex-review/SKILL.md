@@ -24,6 +24,18 @@ that message and stop.
 Print the script's stdout verbatim. Do not paraphrase, trim, or add a
 summary on top.
 
+## Handling findings
+
+- **P1 findings must always be fixed.** Never commit when codex reports
+  a P1.
+- **P2 findings** should be fixed, unless they have been previously
+  discussed in this conversation and explicitly accepted as a policy
+  trade-off. Treat an accepted P2 as resolved.
+- **The iteration loop terminates** when codex no longer reports any
+  P1, AND each remaining P2 has been either fixed or accepted as a
+  known trade-off in this conversation.
+- P3/P4 findings are non-blocking; surface them but proceed.
+
 ## Sandbox
 
 The Claude Code sandbox blocks `codex exec` from accessing its session,

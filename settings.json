@@ -4,7 +4,8 @@
     "sandbox": {
         "enabled": true,
         "excludedCommands": [
-            "bash ~/.claude*/skills/codex-review/review.sh*"
+            "bash ~/.claude*/skills/codex-review/review.sh",
+            "gh *"
         ],
         "filesystem": {
             "allowWrite": [
@@ -29,6 +30,9 @@
             "Bash(uv run ruff check *)",
             "Bash(uv run ruff format *)",
             "Bash(uv sync --frozen *)",
+            "Bash(gh api repos/*/*/issues/*/comments)",
+            "Bash(gh api repos/*/*/pulls/*/comments)",
+            "Bash(gh api repos/*/*/pulls/*/reviews)",
             "Bash(gh issue list *)",
             "Bash(gh issue view *)",
             "Bash(gh pr checks *)",
@@ -39,13 +43,10 @@
             "Bash(gh run list *)",
             "Bash(gh run view *)",
             "Bash(gh search *)",
-            "Bash(gh api repos/*/*/pulls/*/comments)",
-            "Bash(gh api repos/*/*/pulls/*/comments *)",
-            "Bash(gh api repos/*/*/pulls/*/reviews)",
-            "Bash(gh api repos/*/*/pulls/*/reviews *)",
             "Skill(ideation)",
             "Skill(codex-review)",
-            "Skill(complete-implementation)"
+            "Skill(complete-implementation)",
+            "Skill(gh-cli)"
         ],
         "deny": [
             "Bash(awk *)",
