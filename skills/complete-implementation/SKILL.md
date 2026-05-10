@@ -29,8 +29,13 @@ allowed-tools:
    refactor / docs / test / chore / perf / build / ci / style / revert),
    subject in imperative mood and under ~70 chars. Add a body
    explaining *why* if not obvious from the diff. Confirm the message
-   with the user, then `git commit -m "<message>"` (HEREDOC for
-   multi-line).
+   with the user, then commit. For a single-paragraph message, use
+   `git commit -m "<subject>"`. For multi-paragraph messages, pass one
+   `-m` per paragraph (e.g. `git commit -m "<subject>" -m "<body>"`);
+   HEREDOC is unavailable because the Bash hook blocks `<` and
+   newlines. If the message requires backtick-formatted inline code,
+   write it to `/tmp/claude/<file>` and use
+   `git commit -F /tmp/claude/<file>`.
 
 5. Determine the current branch with `git branch --show-current`, then
    push with upstream tracking: `git push -u origin <branch>`.
