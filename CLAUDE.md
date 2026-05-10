@@ -8,7 +8,9 @@
 ## Tool usage
 
 - Bash commands used for file exploration and reading — `ls`, `cat`, `head`, `tail`, `find`, `grep`, etc. — are prohibited as a matter of policy. Use Claude Code's built-in tools (`Read`, `Grep`, `Glob`) for these tasks instead.
-- Chaining or redirecting shell commands is prohibited because compound commands can slip dangerous operations past user review. Do not run commands containing `&&`, `&`, `;`, or `>>` — the rule matches the literal characters anywhere in the command string, so even a `;` inside a commit message will be rejected.
+- Chaining, redirecting, and shell-expansion in commands is prohibited because compound commands can slip dangerous operations past user review. Do not run commands containing `&&`, `&`, `;`, `>`, `<`, `|`, `` ` ``, `$(`, `$'`, `$"`, `${`, `$[`, or newlines — the rule matches the literal characters anywhere in the command string, so even a `;` inside a commit message will be rejected. Plain `$VAR` (variable reference without an expansion sigil) is allowed.
+- Commit messages must be assembled from multiple `-m` flags (HEREDOC syntax requires blocked characters). Each `-m` becomes a paragraph; put the Co-Authored-By trailer in the last `-m`. Example: `git commit -m "subject" -m "body" -m "Co-Authored-By: Claude <noreply@anthropic.com>"`.
+- When a workflow legitimately needs a pipe or backtick command substitution, write a script under `./bin/` and invoke it as a single command. The script is committed and reviewed via the standard commit/codex-review flow; do not run an unreviewed script as a way to hide the blocked operators. For commit messages that need backtick-formatted inline code, write the message to `/tmp/claude/<file>` and use `git commit -F /tmp/claude/<file>` (or `gh pr create --body-file ...` for PR bodies).
 
 ## Development flow
 
