@@ -11,20 +11,26 @@ allowed-tools:
   - Skill
 ---
 
-1. Run `git status`. Decide the staging set:
+1. Run `git branch --show-current`. If the current branch is a main
+   branch — `main`, `master`, `dev`, or `develop` — create a feature
+   branch before staging: pick a name in `<type>/<short-scope>` form
+   matching the Conventional Commits type for the work (e.g.
+   `feat/...`, `fix/...`, `refactor/...`) based on the conversation.
+
+2. Run `git status`. Decide the staging set:
    - If the conversation makes the target obvious, stage directly with
      `git add <file>` (never `-A` / `.` / `-u`).
    - Otherwise ask the user via AskUserQuestion. Wait at this step if
      the user wants to narrow the scope further.
 
-2. Invoke the `codex-review` skill against the staged change set.
+3. Invoke the `codex-review` skill against the staged change set.
 
-3. If the review reports any P1 or P2 finding: fix the code, re-stage
+4. If the review reports any P1 or P2 finding: fix the code, re-stage
    the updated files, and re-invoke `codex-review`. Cap this loop at 3
    iterations total. If iteration 3 still surfaces P1/P2, stop and
    report to the user — do not commit.
 
-4. P3/P4-only or no findings: draft a Conventional Commits message in
+5. P3/P4-only or no findings: draft a Conventional Commits message in
    the form `<type>(<optional-scope>): <subject>` (type ∈ feat / fix /
    refactor / docs / test / chore / perf / build / ci / style / revert),
    subject in imperative mood and under ~70 chars. Add a body
@@ -37,5 +43,5 @@ allowed-tools:
    write it to `/tmp/claude/<file>` and use
    `git commit -F /tmp/claude/<file>`.
 
-5. Determine the current branch with `git branch --show-current`, then
+6. Determine the current branch with `git branch --show-current`, then
    push with upstream tracking: `git push -u origin <branch>`.
