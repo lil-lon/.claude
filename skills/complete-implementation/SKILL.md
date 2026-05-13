@@ -13,9 +13,12 @@ allowed-tools:
 
 1. Run `git branch --show-current`. If the current branch is a main
    branch — `main`, `master`, `dev`, or `develop` — create a feature
-   branch before staging: pick a name in `<type>/<short-scope>` form
-   matching the Conventional Commits type for the work (e.g.
-   `feat/...`, `fix/...`, `refactor/...`) based on the conversation.
+   branch and switch to it before staging: pick a name in
+   `<type>/<short-scope>` form matching the Conventional Commits type
+   for the work (e.g. `feat/...`, `fix/...`, `refactor/...`) based on
+   the conversation. After this step `git branch --show-current` must
+   return the new branch name; if it still returns a main branch,
+   stop and re-run with a command that both creates and switches.
 
 2. Run `git status`. Decide the staging set:
    - If the conversation makes the target obvious, stage directly with
