@@ -94,5 +94,9 @@
             }
         ]
     },
+    "statusLine": {
+        "type": "command",
+        "command": "$CLAUDE_CONFIG_DIR/bin/statusline.py"
+    },
     "effortLevel": "xhigh"
 }
