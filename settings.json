@@ -9,7 +9,9 @@
         ],
         "filesystem": {
             "allowWrite": [
-                "~/.cache/pre-commit"
+                "~/.cache/pre-commit",
+                "~/.cache/prek/",
+                "~/.cache/uv/"
             ]
         }
     },
@@ -20,6 +22,8 @@
             "WebSearch",
             "Grep",
             "Glob",
+            "Bash(ls)",
+            "Bash(ls *)",
             "Bash(git add *)",
             "Bash(git commit *)",
             "Bash(git diff *)",
@@ -63,8 +67,6 @@
             "Bash(find *)",
             "Bash(grep *)",
             "Bash(head *)",
-            "Bash(ls)",
-            "Bash(ls *)",
             "Bash(printf *)",
             "Bash(rg *)",
             "Bash(sed *)",
