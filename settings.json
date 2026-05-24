@@ -58,6 +58,10 @@
             "Skill(gh-cli)"
         ],
         "deny": [
+            "Bash(env)",
+            "Bash(env *)",
+            "Bash(printenv)",
+            "Bash(printenv *)",
             "Bash(awk *)",
             "Bash(git -C *)",
             "Bash(python *)",
