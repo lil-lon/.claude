@@ -14,7 +14,8 @@
             "allowWrite": [
                 "~/.cache/pre-commit",
                 "~/.cache/prek/",
-                "~/.cache/uv/"
+                "~/.cache/uv/",
+                "~/.agent-worktree"
             ]
         }
     },
